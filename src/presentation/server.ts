@@ -1,33 +1,31 @@
 import express from 'express';
 import { initProductController } from './product.controller';
-import { initPromotionController } from './promotion.controller'; // Importar el controlador de promociones
+import { initPromotionController } from './promotion.controller';
 import { ProductRepositoryImpl } from '../infrastructure/product.repository';
-import { PromotionRepositoryImpl } from '../infrastructure/promotion.repository'; // Importar el repositorio de promociones
+import { PromotionRepositoryImpl } from '../infrastructure/promotion.repository';
 import { ProductServiceImpl } from '../application/product.service';
-import { PromotionServiceImpl } from '../application/promotion.service'; // Importar el servicio de promociones
+import { PromotionServiceImpl } from '../application/promotion.service';
 import { pool } from '../infrastructure/database'; 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configurar repositorios y servicios
+// Respositorios y servicios
 const productRepository = new ProductRepositoryImpl(pool as any);
-const promotionRepository = new PromotionRepositoryImpl(); // Instanciar el repositorio de promociones
+const promotionRepository = new PromotionRepositoryImpl();
 const productService = new ProductServiceImpl(productRepository);
-const promotionService = new PromotionServiceImpl(promotionRepository); // Instanciar el servicio de promociones
+const promotionService = new PromotionServiceImpl(promotionRepository);
 
-// Inicializar controladores
+// Controllers
 const productController = initProductController(productService);
-const promotionController = initPromotionController(promotionService); // Inicializar el controlador de promociones
+const promotionController = initPromotionController(promotionService);
 
-// Configurar middleware para manejar JSON
 app.use(express.json());
 
 // Rutas
 app.use('/products', productController);
-app.use('/promotions', promotionController); // Agregar las rutas para las promociones
+app.use('/promotions', promotionController); 
 
-// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

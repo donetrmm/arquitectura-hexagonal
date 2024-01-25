@@ -1,7 +1,7 @@
 import { Promotion } from '../domain/promotion.entity';
 import { PromotionRepository } from '../domain/promotion.repository';
 import { pool } from './database';
-import { RowDataPacket, OkPacket } from 'mysql2/promise';
+import { RowDataPacket, ResultSetHeader } from 'mysql2/promise';
 
 export class PromotionRepositoryImpl implements PromotionRepository {
   async findAll(): Promise<Promotion[]> {
@@ -15,19 +15,19 @@ export class PromotionRepositoryImpl implements PromotionRepository {
   }
 
   async create(promotion: Promotion): Promise<Promotion> {
-    const [result] = await pool.query<OkPacket>('INSERT INTO promotions SET ?', [promotion]);
+    const [result] = await pool.query<ResultSetHeader>('INSERT INTO promotions SET ?', [promotion]);
     promotion.id = result.insertId.toString();
     return promotion;
   }
 
   async update(id: string, promotion: Promotion): Promise<Promotion | null> {
-    const [result] = await pool.query<OkPacket>('UPDATE promotions SET ? WHERE id = ?', [promotion, id]);
+    const [result] = await pool.query<ResultSetHeader>('UPDATE promotions SET ? WHERE id = ?', [promotion, id]);
     if (result.affectedRows === 0) return null;
     return promotion;
   }
 
   async delete(id: string): Promise<boolean> {
-    const [result] = await pool.query<OkPacket>('DELETE FROM promotions WHERE id = ?', [id]);
+    const [result] = await pool.query<ResultSetHeader>('DELETE FROM promotions WHERE id = ?', [id]);
     return result.affectedRows > 0;
   }
 
@@ -35,7 +35,6 @@ export class PromotionRepositoryImpl implements PromotionRepository {
     return {
       id: row.id.toString(),
       description: row.description.toString(),
-      // otras propiedades si es necesario
     };
   }
 }
