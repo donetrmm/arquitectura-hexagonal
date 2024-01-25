@@ -1,6 +1,6 @@
-import { Product } from '../domain/product.entity';
+import { Product } from '../domain/product.entity'
 import { ProductRepository } from '../domain/product.repository';
-import { OkPacket, ResultSetHeader, RowDataPacket, Pool } from 'mysql2/promise';
+import { ResultSetHeader, RowDataPacket, Pool } from 'mysql2/promise';
 
 export class ProductRepositoryImpl implements ProductRepository {
   private pool: Pool;
@@ -26,13 +26,13 @@ export class ProductRepositoryImpl implements ProductRepository {
   }
 
   async update(id: string, product: Product): Promise<Product | null> {
-    const [result] = await this.pool.query<OkPacket>('UPDATE products SET ? WHERE id = ?', [product, id]);
+    const [result] = await this.pool.query<ResultSetHeader>('UPDATE products SET ? WHERE id = ?', [product, id]);
     if (result.affectedRows === 0) return null;
     return product;
   }
 
   async delete(id: string): Promise<boolean> {
-    const [result] = await this.pool.query<OkPacket>('DELETE FROM products WHERE id = ?', [id]);
+    const [result] = await this.pool.query<ResultSetHeader>('DELETE FROM products WHERE id = ?', [id]);
     return result.affectedRows > 0;
   }
 }
