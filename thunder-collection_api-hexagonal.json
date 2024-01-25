@@ -1,0 +1,189 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "api-hexagonal",
+    "dateExported": "2024-01-25T03:33:55.508Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "303003c0-d78a-4308-ae22-c5e1e1e8a9cb",
+            "name": "PRODUCTOS",
+            "containerId": "",
+            "created": "2024-01-25T01:11:07.772Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "f5cd9704-8484-4210-ade6-0fa7a708363e",
+            "name": "PROMOCIONES",
+            "containerId": "",
+            "created": "2024-01-25T01:11:24.616Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "731d4a4d-293c-47c1-aeb7-8dd297e21fb6",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "303003c0-d78a-4308-ae22-c5e1e1e8a9cb",
+            "name": "GET ALL",
+            "url": "http://localhost:3000/products",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-25T00:09:16.079Z",
+            "modified": "2024-01-25T00:09:27.646Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1ad31e01-bcd4-43bd-ad8e-9223ea62fa17",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "303003c0-d78a-4308-ae22-c5e1e1e8a9cb",
+            "name": "GET",
+            "url": "http://localhost:3000/products/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-01-25T00:09:42.080Z",
+            "modified": "2024-01-25T00:10:23.254Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"2\",\n  \"name\": \"PEPSI\",\n  \"price\": 19\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5e5e1234-8966-404f-81cf-41f22ce9ca75",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "303003c0-d78a-4308-ae22-c5e1e1e8a9cb",
+            "name": "CREATE",
+            "url": "http://localhost:3000/products",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-25T00:10:00.202Z",
+            "modified": "2024-01-25T00:10:46.607Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"2\",\n  \"name\": \"COCACOLA\",\n  \"price\": 12\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5cd4aa9b-ee5c-43d1-a552-dbd21ad8a69e",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "303003c0-d78a-4308-ae22-c5e1e1e8a9cb",
+            "name": "UPDATE",
+            "url": "http://localhost:3000/products/3",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-01-25T00:11:27.851Z",
+            "modified": "2024-01-25T00:25:14.106Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"2\",\n  \"name\": \"COCA COLA\",\n  \"price\": 20\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a5518dac-7d68-4d0e-9b0b-869851a21cf1",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "303003c0-d78a-4308-ae22-c5e1e1e8a9cb",
+            "name": "DELETE",
+            "url": "http://localhost:3000/products/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-01-25T00:12:14.811Z",
+            "modified": "2024-01-25T00:12:22.139Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "76ce6054-a0c1-42ef-835b-99f84821aaab",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "f5cd9704-8484-4210-ade6-0fa7a708363e",
+            "name": "GET ALL",
+            "url": "http://localhost:3000/promotions",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-01-25T01:11:32.885Z",
+            "modified": "2024-01-25T01:11:49.512Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2f1aaff0-7169-445b-b2d8-d32c94e64fc4",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "f5cd9704-8484-4210-ade6-0fa7a708363e",
+            "name": "GET",
+            "url": "http://localhost:3000/promotions/1",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-01-25T01:12:03.492Z",
+            "modified": "2024-01-25T03:32:12.727Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "57a92954-f637-4434-be33-23c490e91eb0",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "f5cd9704-8484-4210-ade6-0fa7a708363e",
+            "name": "CREATE",
+            "url": "http://localhost:3000/promotions",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-01-25T01:12:24.889Z",
+            "modified": "2024-01-25T03:31:47.267Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"2\",\n  \"description\": \"prueba promotion 12\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dff282eb-ca17-4c05-a661-39c887da3424",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "f5cd9704-8484-4210-ade6-0fa7a708363e",
+            "name": "UPDATE",
+            "url": "http://localhost:3000/promotions/2",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2024-01-25T01:12:55.885Z",
+            "modified": "2024-01-25T03:23:47.426Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"1\",\n  \"description\": \"prueba promotion act\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b4c130e2-5f03-4a11-8b9f-959ff8eb7960",
+            "colId": "8c3b2900-970d-4486-a302-ef9e88a0fa6b",
+            "containerId": "f5cd9704-8484-4210-ade6-0fa7a708363e",
+            "name": "DELETE",
+            "url": "http://localhost:3000/promotions/1",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2024-01-25T01:14:26.076Z",
+            "modified": "2024-01-25T03:23:56.285Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
