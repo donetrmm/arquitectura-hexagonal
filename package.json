@@ -11,10 +11,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/presentation/server.ts"
+    "start": "ts-node-dev server.ts",
+    "sonar": "sonar-scanner"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "dotenv": "^16.4.1",
+    "sonarqube-scanner": "^3.3.0",
+    "ts-node-dev": "^2.0.0"
+  }
 }

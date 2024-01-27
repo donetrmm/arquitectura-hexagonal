@@ -1,14 +1,18 @@
 import express from 'express';
-import { initProductController } from './product.controller';
-import { initPromotionController } from './promotion.controller';
-import { ProductRepositoryImpl } from '../infrastructure/product.repository';
-import { PromotionRepositoryImpl } from '../infrastructure/promotion.repository';
-import { ProductServiceImpl } from '../application/product.service';
-import { PromotionServiceImpl } from '../application/promotion.service';
-import { pool } from '../infrastructure/database'; 
+import { initProductController } from './src/presentation/product.controller';
+import { initPromotionController } from './src/presentation/promotion.controller';
+import { ProductRepositoryImpl } from './src/infrastructure/product.repository';
+import { PromotionRepositoryImpl } from './src/infrastructure/promotion.repository';
+import { ProductServiceImpl } from './src/application/product.service';
+import { PromotionServiceImpl } from './src/application/promotion.service';
+import { pool } from './src/infrastructure/database';
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.disable("x-powered-by");
+
+const PORT = 3000;
 
 // Respositorios y servicios
 const productRepository = new ProductRepositoryImpl(pool as any);
@@ -26,6 +30,6 @@ app.use(express.json());
 app.use('/products', productController);
 app.use('/promotions', promotionController); 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
